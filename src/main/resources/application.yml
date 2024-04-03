@@ -19,4 +19,4 @@ spring:
 
 bot:
   name: "CryptoBotForBB"
-  token: {$BOT_TOKEN:}
+  token: "6545598249:AAFqq8uX8sgsuEZ5NacE7HvDNwp4DW4j8eg"
