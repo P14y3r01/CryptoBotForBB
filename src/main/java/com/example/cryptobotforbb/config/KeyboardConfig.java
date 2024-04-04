@@ -15,22 +15,22 @@ import java.util.List;
 public class KeyboardConfig {
     @Bean
     public ReplyKeyboardMarkup replyKeyboardMarkup() {
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-        replyKeyboardMarkup.setSelective(true);
-        replyKeyboardMarkup.setResizeKeyboard(true);
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
-        replyKeyboardMarkup.setKeyboard(keyboardRows());
-
-        return replyKeyboardMarkup;
+        return ReplyKeyboardMarkup.builder()
+                .selective(true)
+                .resizeKeyboard(true)
+                .oneTimeKeyboard(false)
+                .build();
     }
+
     @Bean
-    public List<KeyboardRow> keyboardRows(){
+    public List<KeyboardRow> keyboardRows() {
         List<KeyboardRow> row = new ArrayList<>();
         row.add(new KeyboardRow(keyboardButtons()));
         return row;
     }
+
     @Bean
-    public List<KeyboardButton> keyboardButtons(){
+    public List<KeyboardButton> keyboardButtons() {
         List<KeyboardButton> buttons = new ArrayList<>();
         buttons.add(new KeyboardButton("profile"));
         buttons.add(new KeyboardButton("start"));
