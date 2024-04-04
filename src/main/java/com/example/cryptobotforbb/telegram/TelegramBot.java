@@ -1,6 +1,7 @@
 package com.example.cryptobotforbb.telegram;
 
 import com.example.cryptobotforbb.config.BotProperties;
+import com.example.cryptobotforbb.config.KeyboardConfig;
 import com.example.cryptobotforbb.telegram.commands.StartCommand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private final StartCommand startCommand;
     private final BotProperties botProperties;
-
+    private final KeyboardConfig keyboardConfig;
     @Override
     public void onUpdateReceived(Update update) {
         sendMessage(startCommand.apply(update));
@@ -45,6 +46,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     private void sendMessage(SendMessage sendMessage) {
+       sendMessage.setReplyMarkup(keyboardConfig.replyKeyboardMarkup());
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
