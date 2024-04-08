@@ -9,15 +9,16 @@ import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 
+import static com.example.cryptobotforbb.CryptoBotForBbApplication.logger;
+
 @Component
 @Service
 @RequiredArgsConstructor
 @Slf4j
 @EnableScheduling
 public class TestScheduler {
-
     @Scheduled(fixedRateString = "PT02S")
     public void testDeployFunction() {
-        log.info("Current time is " + OffsetDateTime.now());
+        logger.info("Current time is " + OffsetDateTime.now());
     }
 }
